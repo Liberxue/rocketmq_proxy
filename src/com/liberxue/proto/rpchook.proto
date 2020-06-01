@@ -2,7 +2,6 @@ syntax = "proto3";
 
 service RPCHook {
   rpc DoubleWayStreamFun(stream RequestMessage) returns (stream ResponseMessage){}
-
-    rpc doBeforeRequest(final String remoteAddr, final RemotingCommand request);
+  rpc doBeforeRequest(final String remoteAddr, final RemotingCommand request);
 
 }
