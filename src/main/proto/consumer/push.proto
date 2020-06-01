@@ -1,0 +1,17 @@
+syntax = "proto3";
+import "proto/enum/consumeFromWhere.proto";
+
+message push {
+    int32 consumeMessageBatchMaxSize=10;
+    ConsumeFromWhere consumeFromWhere=15;
+    string PullThresholdForTopic=20;
+    int32 PullThresholdSizeForQueue=25;
+    int32 PullThresholdSizeForTopic=30;
+    map<string, string> subscription = 35;
+    bool MessageBack=40;
+}
+
+service consumer {
+  rpc start() returns (stream ResponseMessage)){}
+  rpc shutdown() returns (stream ResponseMessage)){}
+}

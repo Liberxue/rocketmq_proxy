@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message  CommandCustomHeader {
+
+}
+message RemotingCommand {
+    int32 code=5;
+    int32 version=10;
+    int32 opaque=15;
+    int32 flag =20;
+    string remark=25;
+    string serializeType =40;
+    map<string, string> extFields = 30;
+    CustomHeader CommandCustomHeader =50;
+    byte Body =60;
+}

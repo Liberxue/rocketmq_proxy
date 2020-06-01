@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+message MessageQueue {
+    int64 serialVersionUID =10;
+    string topic=15;
+    string brokerName=20;
+    int32 queueId=25;
+}

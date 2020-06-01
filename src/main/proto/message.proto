@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+message Properties {
+    string name = 1;
+}
+
+message Message {
+  string topic  = 5;
+  string tags=6;
+  string keys=7;
+  int32 flag = 10;
+  bytes body=15;
+  bool waitStoreMsgOK=20;
+  map<string, Properties> properties = 25;
+  string transactionId=30;
+}

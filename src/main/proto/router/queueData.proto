@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message QueueData {
+	string brokerName =10;
+	uint32 readQueueNums =20;
+	uint32 writeQueueNums=30;
+	uint8  perm=40;
+	uint8  topicSyncFlag=50;
+}
