@@ -1,0 +1,6 @@
+syntax = "proto3";
+
+message  DefaultMQProducer {
+    string  producerGroup = 5;
+    RPCHook rpcHook
+}
