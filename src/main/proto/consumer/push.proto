@@ -1,9 +1,18 @@
 syntax = "proto3";
-import "proto/enum/consumeFromWhere.proto";
+option java_multiple_files = true;
+option java_package = "io.grpc.consumer.push";
+option java_outer_classname = "pushproto";
+option objc_class_prefix = "HLW";
+message PushRequest {
+}
+
+message PushReply {
+  string message = 1;
+}
 
 message push {
     int32 consumeMessageBatchMaxSize=10;
-    ConsumeFromWhere consumeFromWhere=15;
+    // ConsumeFromWhere consumeFromWhere=15;
     string PullThresholdForTopic=20;
     int32 PullThresholdSizeForQueue=25;
     int32 PullThresholdSizeForTopic=30;
@@ -12,6 +21,6 @@ message push {
 }
 
 service consumer {
-  rpc start() returns (stream ResponseMessage)){}
-  rpc shutdown() returns (stream ResponseMessage)){}
+  rpc Start (stream PushRequest) returns (stream PushReply) {}
+  rpc Shutdown(PushRequest) returns ( PushReply){}
 }
